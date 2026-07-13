@@ -1,0 +1,337 @@
+:root {
+  --wood-dark: #3e2723;
+  --wood: #6d4c41;
+  --wood-light: #8d6e63;
+  --ember: #e0703a;
+  --ember-dark: #c65a28;
+  --cream: #faf3ea;
+  --cream-alt: #f0e5d8;
+  --text: #2b211c;
+  --text-muted: #6b5c53;
+  --radius: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text);
+  background: var(--cream);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+h1, h2, h3, h4 {
+  font-family: Georgia, "Times New Roman", serif;
+  margin-top: 0;
+  color: var(--wood-dark);
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+a {
+  color: var(--ember-dark);
+}
+
+/* Header */
+.site-header {
+  background: var(--wood-dark);
+  color: var(--cream);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+}
+
+.logo {
+  font-family: Georgia, serif;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--cream);
+  text-decoration: none;
+}
+
+.site-header nav a {
+  color: var(--cream);
+  text-decoration: none;
+  margin-left: 24px;
+  font-size: 0.95rem;
+}
+
+.site-header nav a:hover {
+  color: var(--ember);
+}
+
+/* Hero */
+.hero {
+  background-color: var(--wood-dark);
+  background-size: cover;
+  background-position: center;
+  color: var(--cream);
+  padding: 90px 0;
+  text-align: center;
+}
+
+.hero h1 {
+  color: var(--cream);
+  font-size: 2.6rem;
+  max-width: 700px;
+  margin: 0 auto 20px;
+}
+
+.hero p {
+  max-width: 560px;
+  margin: 0 auto 32px;
+  color: var(--cream-alt);
+  font-size: 1.1rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 32px;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--ember);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--ember-dark);
+}
+
+/* Sections */
+.section {
+  padding: 72px 0;
+}
+
+.section-alt {
+  background: var(--cream-alt);
+}
+
+.section-lead {
+  text-align: center;
+  color: var(--text-muted);
+  max-width: 500px;
+  margin: -16px auto 40px;
+}
+
+/* Sauna section */
+.sauna-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.sauna-photo {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+.sauna-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0 0;
+}
+
+.feature-list li {
+  padding: 8px 0 8px 28px;
+  position: relative;
+  border-bottom: 1px solid #e6dccc;
+}
+
+.feature-list li::before {
+  content: "♨";
+  position: absolute;
+  left: 0;
+  color: var(--ember);
+}
+
+/* Pricing */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.price-card {
+  background: white;
+  border-radius: var(--radius);
+  padding: 32px 20px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.price-card-highlight {
+  border: 2px solid var(--ember);
+}
+
+.price-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+}
+
+.price {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: var(--ember-dark);
+  margin: 0;
+}
+
+.price-note {
+  color: var(--text-muted);
+  margin: 4px 0 0;
+  font-size: 0.9rem;
+}
+
+.delivery-info {
+  background: white;
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.delivery-info h3 {
+  margin-bottom: 8px;
+}
+
+/* Booking form */
+.booking-form {
+  max-width: 560px;
+  margin: 0 auto;
+  background: white;
+  padding: 32px;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.form-row {
+  margin-bottom: 18px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-row label {
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+.form-row input,
+.form-row textarea {
+  padding: 10px 12px;
+  border: 1px solid #d8ccbc;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.form-row input:focus,
+.form-row textarea:focus {
+  outline: 2px solid var(--ember);
+  outline-offset: 1px;
+}
+
+.booking-form .btn {
+  width: 100%;
+}
+
+.form-fallback {
+  text-align: center;
+  margin-top: 20px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* Footer */
+.site-footer {
+  background: var(--wood-dark);
+  color: var(--cream-alt);
+  padding: 48px 0 24px;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+
+.footer-inner h3,
+.footer-inner h4 {
+  color: var(--cream);
+}
+
+.footer-inner a {
+  color: var(--cream-alt);
+}
+
+.footer-copy {
+  margin-top: 32px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  font-size: 0.85rem;
+  color: var(--wood-light);
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 720px) {
+  .sauna-grid,
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .header-inner {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .site-header nav a {
+    margin: 0 10px;
+  }
+
+  .hero {
+    padding: 60px 0;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+}

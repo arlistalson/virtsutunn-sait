@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Virtsutünn – Kümblustünn rataste peal</title>
+<meta name="description" content="Renditakse rattal olevat kümblustünni Eestis. Broneeri kümblustünn oma üritusele!">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="#" class="logo">Virtsutünn</a>
+    <nav>
+      <a href="#kumblustunn">Kümblustünn</a>
+      <a href="#hinnad">Hinnad</a>
+      <a href="#broneeri">Broneeri</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" style="background-image: linear-gradient(rgba(62,39,35,0.72), rgba(62,39,35,0.82)), url('images/saun-1.jpg');">
+  <div class="container">
+    <h1>Kümblustünn rataste peal – soe vann otse sinu õuele</h1>
+    <p>Rendi mobiilne kümblustünn ja naudi sooja vee mõnu kus iganes soovid – kodus, suvilas või peol.</p>
+    <a href="#broneeri" class="btn btn-primary">Broneeri kümblustünn</a>
+  </div>
+</section>
+
+<section id="kumblustunn" class="section">
+  <div class="container">
+    <h2>Meie kümblustünn</h2>
+    <div class="sauna-grid">
+      <div class="sauna-photo">
+        <img src="images/saun-1.jpg" alt="Virtsutünn kümblustünn rataste peal aiamaastikul" loading="lazy">
+      </div>
+      <div class="sauna-info">
+        <p>Mugav ja hubane rattail kümblustünn mahutab korraga kuni <strong>6 inimest</strong>. Kümblustünn on lihtsasti transporditav ja sobib nii koduaeda kui ka suurematele üritustele.</p>
+        <ul class="feature-list">
+          <li>Mahutavus kuni 6 inimest</li>
+          <li>Lihtne kohale toimetada – haagisena veetav</li>
+          <li>Sobib aastaringseks kasutamiseks</li>
+          <li>Võimalik ise järele tulla või tellida kohaletoomine</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="hinnad" class="section section-alt">
+  <div class="container">
+    <h2>Hinnad</h2>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <h3>Argipäev</h3>
+        <p class="price">40&nbsp;€</p>
+        <p class="price-note">24 tundi</p>
+      </div>
+      <div class="price-card">
+        <h3>Nädalavahetus</h3>
+        <p class="price">55&nbsp;€</p>
+        <p class="price-note">24 tundi</p>
+      </div>
+      <div class="price-card price-card-highlight">
+        <h3>Terve nädalavahetus</h3>
+        <p class="price">100&nbsp;€</p>
+        <p class="price-note">reedest pühapäevani</p>
+      </div>
+    </div>
+
+    <div class="delivery-info">
+      <h3>Kohaletoimetamine</h3>
+      <p>Kohaletoomise hind kokkuleppel, sõltuvalt asukohast. Võimalik ka ise kümblustünnile järele tulla.</p>
+    </div>
+  </div>
+</section>
+
+<section id="broneeri" class="section">
+  <div class="container">
+    <h2>Broneeri kümblustünn</h2>
+    <p class="section-lead">Täida vorm ja võtame sinuga peagi ühendust broneeringu kinnitamiseks.</p>
+
+    <form class="booking-form" action="https://formspree.io/f/mpqvzrab" method="POST">
+      <div class="form-row">
+        <label for="name">Nimi *</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-row">
+        <label for="email">E-post *</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-row">
+        <label for="phone">Telefon</label>
+        <input type="tel" id="phone" name="phone">
+      </div>
+      <div class="form-row">
+        <label for="dates">Soovitud kuupäevad *</label>
+        <input type="text" id="dates" name="dates" placeholder="nt 25.–27. juuli 2026" required>
+      </div>
+      <div class="form-row">
+        <label for="location">Asukoht (kohaletoimetamiseks)</label>
+        <input type="text" id="location" name="location" placeholder="Linn / vald">
+      </div>
+      <div class="form-row">
+        <label for="message">Lisainfo</label>
+        <textarea id="message" name="message" rows="4" placeholder="Kirjuta siia täpsustavad soovid või küsimused"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Saada broneeringusoov</button>
+    </form>
+
+    <p class="form-fallback">
+      Vorm ei toimi? Kirjuta otse:
+      <a href="mailto:arlistalson@gmail.com?subject=K%C3%BCmblust%C3%BCnni%20broneering">arlistalson@gmail.com</a>
+    </p>
+  </div>
+</section>
+
+<footer id="kontakt" class="site-footer">
+  <div class="container footer-inner">
+    <div>
+      <h3>Virtsutünn</h3>
+      <p>Kümblustünn rataste peal</p>
+    </div>
+    <div>
+      <h4>Kontakt</h4>
+      <p><a href="tel:+37258183738">+372 5818 3738</a></p>
+      <p><a href="mailto:arlistalson@gmail.com">arlistalson@gmail.com</a></p>
+    </div>
+  </div>
+  <div class="container footer-copy">
+    <p>&copy; <span id="year"></span> Virtsutünn. Kõik õigused kaitstud.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
