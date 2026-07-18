@@ -88,11 +88,23 @@ a {
 }
 
 .logo {
-  font-family: Georgia, serif;
-  font-size: 1.4rem;
-  font-weight: bold;
-  color: var(--cream);
+  display: flex;
+  align-items: center;
+  gap: 11px;
   text-decoration: none;
+}
+.logo-icon { height: 38px; width: auto; display: block; }
+.logo-text {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: #d9c1ae;
+  line-height: 1;
+}
+.logo-text em {
+  font-style: normal;
+  font-weight: 600;
+  color: #f09a63;
 }
 
 .site-header nav a {
