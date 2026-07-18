@@ -17,7 +17,7 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: "Karla", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   color: var(--text);
   background: var(--cream);
   line-height: 1.6;
@@ -30,16 +30,42 @@ body {
 }
 
 h1, h2, h3, h4 {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Fraunces", Georgia, "Times New Roman", serif;
   margin-top: 0;
   color: var(--wood-dark);
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 2.2rem;
   margin-bottom: 1.5rem;
   text-align: center;
 }
+h2.left { text-align: left; }
+h2 em {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--ember-dark);
+}
+
+.overline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ember-dark);
+  margin: 0 0 12px;
+}
+.overline .mark {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--ember);
+}
+.overline-light { color: #f3c9a8; }
 
 a {
   color: var(--ember-dark);
@@ -84,23 +110,24 @@ a {
 .hero {
   background-color: var(--wood-dark);
   background-size: cover;
-  background-position: center;
+  background-position: center 65%;
   color: var(--cream);
-  padding: 90px 0;
-  text-align: center;
+  padding: 120px 0 130px;
+  text-align: left;
 }
 
 .hero h1 {
   color: var(--cream);
-  font-size: 2.6rem;
-  max-width: 700px;
-  margin: 0 auto 20px;
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  line-height: 1.15;
+  max-width: 760px;
+  margin: 0 0 20px;
 }
 
 .hero p {
-  max-width: 560px;
-  margin: 0 auto 32px;
-  color: var(--cream-alt);
+  max-width: 540px;
+  margin: 0 0 32px;
+  color: #e8d9c8;
   font-size: 1.1rem;
 }
 
@@ -134,10 +161,9 @@ a {
 }
 
 .section-lead {
-  text-align: center;
   color: var(--text-muted);
   max-width: 500px;
-  margin: -16px auto 40px;
+  margin: -8px 0 40px;
 }
 
 /* Sauna section */
@@ -148,18 +174,67 @@ a {
   align-items: center;
 }
 
-.sauna-photo {
+/* Gallery slider */
+.gallery {
+  position: relative;
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: 0 4px 16px rgba(0,0,0,0.15);
 }
-
-.sauna-photo img {
+.gallery-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+.gallery-track::-webkit-scrollbar { display: none; }
+.gallery-track img {
   display: block;
   width: 100%;
-  height: 100%;
+  height: auto;
+  flex: 0 0 100%;
+  scroll-snap-align: start;
   object-fit: cover;
+  aspect-ratio: 4 / 3;
 }
+.gallery-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(43, 33, 28, 0.55);
+  color: var(--cream);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.gallery-nav:hover { background: var(--ember); }
+.gallery-prev { left: 12px; }
+.gallery-next { right: 12px; }
+.gallery-dots {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+.gallery-dot {
+  width: 10px;
+  height: 10px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(250, 243, 234, 0.55);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s, transform 0.2s;
+}
+.gallery-dot.active { background: var(--ember); transform: scale(1.25); }
 
 .feature-list {
   list-style: none;
@@ -190,14 +265,16 @@ a {
 
 .price-card {
   background: white;
+  border: 1px solid #e6dccc;
+  border-top: 3px solid var(--wood-light);
   border-radius: var(--radius);
   padding: 32px 20px;
   text-align: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
 
 .price-card-highlight {
-  border: 2px solid var(--ember);
+  border-color: var(--ember);
+  border-top-color: var(--ember);
 }
 
 .price-card h3 {
@@ -343,6 +420,8 @@ a {
   .pricing-grid {
     grid-template-columns: 1fr;
   }
+
+  .gallery-nav { width: 36px; height: 36px; }
 
   .header-inner {
     flex-direction: column;

@@ -32,6 +32,9 @@
   "areaServed": "Eesti"
 }
 </script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -48,9 +51,10 @@
   </div>
 </header>
 
-<section class="hero" style="background-image: linear-gradient(rgba(62,39,35,0.72), rgba(62,39,35,0.82)), url('images/saun-1.jpg');">
+<section class="hero" style="background-image: linear-gradient(100deg, rgba(43,26,20,0.92) 0%, rgba(43,26,20,0.55) 55%, rgba(43,26,20,0.25) 100%), url('images/saun-1.jpg');">
   <div class="container">
-    <h1>Kümblustünn rataste peal – soe vann otse sinu õuele</h1>
+    <p class="overline overline-light"><span class="mark"></span>Kümblustünni rent · Lääneranna</p>
+    <h1>Kümblustünn rataste peal –<br>soe vann otse sinu õuele</h1>
     <p>Rendi mobiilne kümblustünn ehk tünnisaun ja naudi sooja vee mõnu kus iganes soovid – kodus, suvilas või peol.</p>
     <a href="#broneeri" class="btn btn-primary">Broneeri kümblustünn</a>
   </div>
@@ -58,10 +62,18 @@
 
 <section id="kumblustunn" class="section">
   <div class="container">
-    <h2>Meie kümblustünn</h2>
+    <p class="overline"><span class="mark"></span>Tutvu tünniga</p>
+    <h2 class="left">Meie <em>kümblustünn</em></h2>
     <div class="sauna-grid">
-      <div class="sauna-photo">
-        <img src="images/saun-1.jpg" alt="Virtsutünn kümblustünn rataste peal aiamaastikul" loading="lazy">
+      <div class="gallery">
+        <div class="gallery-track" id="galleryTrack">
+          <img src="images/saun-1.jpg" alt="Virtsutünn kümblustünn rataste peal aiamaastikul" width="1600" height="1200">
+          <img src="images/saun-2.jpg" alt="Kümblustünni trepp ja haagis – lihtne sisse-välja pääs" width="1600" height="1200" loading="lazy">
+          <img src="images/saun-3.jpg" alt="Kümblustünni puuküttega ahi ja korsten" width="1600" height="1200" loading="lazy">
+        </div>
+        <button type="button" class="gallery-nav gallery-prev" aria-label="Eelmine pilt">‹</button>
+        <button type="button" class="gallery-nav gallery-next" aria-label="Järgmine pilt">›</button>
+        <div class="gallery-dots" id="galleryDots"></div>
       </div>
       <div class="sauna-info">
         <p>Mugav ja hubane rattail kümblustünn mahutab korraga kuni <strong>6 inimest</strong>. Tünnisaun on lihtsasti transporditav ja sobib nii koduaeda kui ka suurematele üritustele – asume Nehatus, Virtsu lähistel.</p>
@@ -78,7 +90,8 @@
 
 <section id="hinnad" class="section section-alt">
   <div class="container">
-    <h2>Hinnad</h2>
+    <p class="overline"><span class="mark"></span>Hinnakiri</p>
+    <h2 class="left">Lihtne ja aus <em>hind</em></h2>
     <div class="pricing-grid">
       <div class="price-card">
         <h3>Argipäev</h3>
@@ -99,14 +112,15 @@
 
     <div class="delivery-info">
       <h3>Kohaletoimetamine</h3>
-      <p>Kohaletoomise hind kokkuleppel, sõltuvalt asukohast. Võimalik ka ise kümblustünnile järele tulla – asume Nehatus, Lääneranna vallas, Virtsu lähistel.</p>
+      <p>Kohaletoomise hind kokkuleppel, sõltuvalt asukohast. Võimalik ka ise kümblustünnile järele tulla – asume Nehatus, Lääneranna vallas, Virtsu lähistel. Toome kümblustünni kohale nii Pärnumaal kui Läänemaal – Lihula, Haapsalu, Pärnu ja Virtsu ümbruses, kokkuleppel ka kaugemale.</p>
     </div>
   </div>
 </section>
 
 <section id="broneeri" class="section">
   <div class="container">
-    <h2>Broneeri kümblustünn</h2>
+    <p class="overline"><span class="mark"></span>Broneerimine</p>
+    <h2 class="left">Broneeri <em>kümblustünn</em></h2>
     <p class="section-lead">Täida vorm ja võtame sinuga peagi ühendust broneeringu kinnitamiseks.</p>
 
     <form class="booking-form" action="https://formspree.io/f/mpqvzrab" method="POST">
@@ -169,6 +183,34 @@
 </footer>
 
 <script src="script.js"></script>
+<script>
+(function () {
+  var track = document.getElementById('galleryTrack');
+  var dotsWrap = document.getElementById('galleryDots');
+  if (!track || !dotsWrap) return;
+  var slides = track.querySelectorAll('img');
+  slides.forEach(function (_, i) {
+    var d = document.createElement('button');
+    d.type = 'button';
+    d.className = 'gallery-dot' + (i === 0 ? ' active' : '');
+    d.setAttribute('aria-label', 'Pilt ' + (i + 1));
+    d.addEventListener('click', function () { goTo(i); });
+    dotsWrap.appendChild(d);
+  });
+  var dots = dotsWrap.querySelectorAll('.gallery-dot');
+  function current() { return Math.round(track.scrollLeft / track.clientWidth); }
+  function goTo(i) {
+    i = (i + slides.length) % slides.length;
+    track.scrollTo({ left: i * track.clientWidth, behavior: 'smooth' });
+  }
+  document.querySelector('.gallery-prev').addEventListener('click', function () { goTo(current() - 1); });
+  document.querySelector('.gallery-next').addEventListener('click', function () { goTo(current() + 1); });
+  track.addEventListener('scroll', function () {
+    var i = current();
+    dots.forEach(function (d, j) { d.classList.toggle('active', j === i); });
+  }, { passive: true });
+})();
+</script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "d853c3a62f4f4d02b4b2b143bbcb027c"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

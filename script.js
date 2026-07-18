@@ -3,6 +3,7 @@ document.getElementById("year").textContent = new Date().getFullYear();
 (function () {
   var form = document.querySelector(".booking-form");
   if (!form) return;
+
   form.addEventListener("submit", function (e) {
     e.preventDefault();
     var btn = form.querySelector('button[type="submit"]');
