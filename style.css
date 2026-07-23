@@ -708,31 +708,139 @@ a.nav-cta:hover .ico-phone { animation: btn-ring 0.6s var(--ease); transform-ori
   color: rgba(255, 255, 255, 0.72);
   padding: 84px 0 32px;
 }
-.footer-inner {
+.footer-top {
   display: grid;
-  grid-template-columns: 1.4fr 1fr;
-  gap: 40px;
+  grid-template-columns: 1fr 1fr minmax(120px, auto) 1fr 1fr;
+  gap: 34px 40px;
+  align-items: start;
+  padding-bottom: 52px;
 }
-.footer-inner h3 { color: #fff; font-weight: 500; font-size: 1.5rem; margin-bottom: 10px; }
-.footer-inner h4 {
-  color: rgba(255,255,255,0.55);
+.footer-col { display: flex; flex-direction: column; gap: 11px; }
+.footer-col h4 {
+  color: rgba(255, 255, 255, 0.55);
   font-family: "Funnel Sans", sans-serif;
   font-size: 0.75rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   font-weight: 600;
-  margin-bottom: 14px;
+  margin: 0 0 4px;
 }
-.footer-inner p { margin: 0 0 8px; }
-.footer-inner a { color: rgba(255, 255, 255, 0.82); }
-.footer-inner a:hover { color: #fff; }
-.footer-copy {
-  margin-top: 56px;
-  padding-top: 26px;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
+.footer-col a,
+.footer-col span {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.93rem;
+  text-decoration: none;
+  line-height: 1.4;
+}
+.footer-col a { transition: color 0.2s; width: fit-content; }
+.footer-col a:hover { color: #fff; }
+.footer-col--right { text-align: right; align-items: flex-end; }
+
+/* small clickable map card in the footer */
+.footer-map {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 230px;
+  height: 118px;
+  margin-top: 8px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  text-decoration: none;
+}
+.footer-map iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+  pointer-events: none;
+  filter: grayscale(0.15);
+}
+.footer-map-cta {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: rgba(31, 42, 52, 0.42);
+  color: #fff;
+  font-family: "Funnel Sans", sans-serif;
+  font-weight: 600;
   font-size: 0.85rem;
+  transition: background 0.25s var(--ease);
+}
+.footer-map-cta svg { width: 15px; height: 15px; }
+.footer-map:hover .footer-map-cta { background: rgba(31, 42, 52, 0.12); }
+
+.footer-brand {
+  align-self: center;
+  justify-self: center;
+  display: block;
+  line-height: 0;
+  transition: transform 0.3s var(--ease);
+}
+.footer-brand:hover { transform: translateY(-2px); }
+.footer-logo-icon { height: 84px; width: auto; display: block; }
+
+.footer-call {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff !important;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+}
+.footer-call svg { width: 15px; height: 15px; }
+.footer-call:hover {
+  background: var(--clay);
+  border-color: var(--clay);
+  transform: translateY(-1px);
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding-top: 22px;
+}
+.footer-brand-word {
+  font-family: "Funnel Display", sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.12em;
+  color: #fff;
+}
+.footer-bottom .footer-copy-text {
+  margin: 0;
   color: rgba(255, 255, 255, 0.5);
-  text-align: center;
+  font-size: 0.85rem;
+  text-align: right;
+}
+
+@media (max-width: 860px) {
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .footer-brand { order: -1; grid-column: 1 / -1; }
+  .footer-logo-icon { height: 70px; }
+  .footer-col--right { text-align: left; align-items: flex-start; }
+}
+@media (max-width: 600px) {
+  .footer-top { gap: 26px 18px; padding-bottom: 42px; }
+  .footer-col { gap: 9px; }
+  .footer-col a,
+  .footer-col span { font-size: 0.86rem; overflow-wrap: anywhere; }
+  .footer-call { font-size: 0.82rem; padding: 7px 12px; }
+  .footer-logo-icon { height: 60px; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .footer-bottom .footer-copy-text { text-align: left; }
 }
 
 /* Scroll reveal animations --------------------------------- */
