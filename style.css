@@ -125,10 +125,27 @@ strong { font-weight: 600; color: var(--charcoal); }
   letter-spacing: 0.01em;
   border: 1px solid transparent;
   cursor: pointer;
-  transition: transform var(--dur) var(--ease), background 0.25s var(--ease),
-              box-shadow var(--dur) var(--ease), color 0.2s var(--ease);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition: transform 0.35s var(--ease), background 0.25s var(--ease),
+              box-shadow 0.35s var(--ease), color 0.2s var(--ease),
+              letter-spacing 0.35s var(--ease);
   will-change: transform;
 }
+/* moving shine sweep */
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(120deg, transparent 20%, rgba(255,255,255,0.35) 50%, transparent 80%);
+  transform: translateX(-120%);
+  transition: transform 0.7s var(--ease);
+}
+.btn:hover::before { transform: translateX(120%); }
+.btn:active { transform: translateY(0) scale(0.97); transition-duration: 0.08s; }
+
 .btn-primary {
   background: var(--clay);
   color: #fff;
@@ -137,8 +154,9 @@ strong { font-weight: 600; color: var(--charcoal); }
 .btn-primary:hover {
   background: var(--clay-deep);
   color: #fff;
-  transform: translateY(-2px);
-  box-shadow: 0 16px 32px rgba(176, 106, 67, 0.34);
+  transform: translateY(-3px) scale(1.025);
+  letter-spacing: 0.03em;
+  box-shadow: 0 20px 38px rgba(176, 106, 67, 0.42);
 }
 .btn-dark {
   background: var(--charcoal);
@@ -147,8 +165,9 @@ strong { font-weight: 600; color: var(--charcoal); }
 .btn-dark:hover {
   background: var(--navy-deep);
   color: #fff;
-  transform: translateY(-2px);
-  box-shadow: var(--shadow);
+  transform: translateY(-3px) scale(1.025);
+  letter-spacing: 0.03em;
+  box-shadow: var(--shadow-lg);
 }
 .btn-glass {
   background: rgba(255, 255, 255, 0.12);
@@ -158,9 +177,31 @@ strong { font-weight: 600; color: var(--charcoal); }
   -webkit-backdrop-filter: blur(8px);
 }
 .btn-glass:hover {
-  background: rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.26);
+  border-color: rgba(255, 255, 255, 0.6);
   color: #fff;
-  transform: translateY(-2px);
+  transform: translateY(-3px) scale(1.025);
+  letter-spacing: 0.03em;
+}
+
+/* Button icons */
+.btn-ico {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  transition: transform 0.4s var(--ease);
+}
+.btn:hover .ico-cal,
+.nav-cta:hover .ico-cal { transform: translateY(-2px) scale(1.08); }
+.btn:hover .ico-send { transform: translate(4px, -4px) rotate(8deg); }
+.btn:hover .ico-phone,
+a.nav-cta:hover .ico-phone { animation: btn-ring 0.6s var(--ease); transform-origin: 50% 65%; }
+@keyframes btn-ring {
+  0%, 100% { transform: rotate(0); }
+  20% { transform: rotate(-16deg); }
+  40% { transform: rotate(13deg); }
+  60% { transform: rotate(-9deg); }
+  80% { transform: rotate(5deg); }
 }
 
 /* Navigation — floating glass pill ------------------------- */
@@ -244,9 +285,13 @@ strong { font-weight: 600; color: var(--charcoal); }
 .nav-links a.nav-cta {
   background: var(--clay);
   color: #fff;
-  padding: 10px 22px;
+  padding: 10px 20px;
   margin-left: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
+.nav-links a.nav-cta .btn-ico { width: 16px; height: 16px; }
 .nav-links a.nav-cta:hover {
   background: var(--clay-deep);
   color: #fff;
