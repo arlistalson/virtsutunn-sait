@@ -35,13 +35,13 @@
 <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400;500;600;700&family=Funnel+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header class="site-header">
-  <div class="container header-inner">
+<header class="site-header" id="siteHeader">
+  <div class="nav-shell">
     <a href="#" class="logo">
       <svg class="logo-icon" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
         <path d="M38 26 c-5 -5 3 -9 -2 -15" fill="none" stroke="#e0703a" stroke-width="4.5" stroke-linecap="round"/>
@@ -60,35 +60,54 @@
       </svg>
       <span class="logo-text">Virtsu<em>tünn</em></span>
     </a>
-    <nav>
+    <nav class="nav-links" id="navLinks">
       <a href="#kumblustunn">Kümblustünn</a>
       <a href="#hinnad">Hinnad</a>
       <a href="#kontakt">Kontakt</a>
       <a href="#broneeri" class="nav-cta">Broneeri</a>
     </nav>
+    <button type="button" class="nav-toggle" id="navToggle" aria-label="Ava menüü" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
 
 <section class="hero-wrap">
-  <div class="container">
-    <div class="hero-card">
-      <p class="overline overline-light"><span class="mark"></span>Kümblustünni rent · Lääneranna</p>
-      <h1>Kümblustünn rataste peal –<br>soe vann otse sinu õuele</h1>
-      <p class="lead">Rendi mobiilne kümblustünn ehk tünnisaun ja naudi sooja vee mõnu kus iganes soovid – kodus, suvilas või peol.</p>
-      <div class="hero-actions">
-        <a href="#broneeri" class="btn btn-primary">Broneeri kümblustünn</a>
-        <a href="tel:+37258183738" class="btn btn-glass">Helista: 5818 3738</a>
-      </div>
+  <div class="hero-card reveal">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <p class="overline overline-light"><span class="mark"></span>Kümblustünni rent · Lääneranna</p>
+    <h1>Kümblustünn rataste peal –<br>soe vann otse sinu õuele</h1>
+    <p class="lead">Rendi mobiilne kümblustünn ehk tünnisaun ja naudi sooja vee mõnu kus iganes soovid – kodus, suvilas või peol.</p>
+    <div class="hero-actions">
+      <a href="#broneeri" class="btn btn-primary">Broneeri kümblustünn</a>
+      <a href="tel:+37258183738" class="btn btn-glass">Helista: 5818 3738</a>
     </div>
   </div>
 </section>
 
+<div class="stats">
+  <div class="stats-inner reveal">
+    <div class="stat">
+      <div class="stat-num"><span data-count="6">6</span></div>
+      <span class="stat-label">Kuni inimest</span>
+    </div>
+    <div class="stat">
+      <div class="stat-num"><span data-count="40">40</span>&nbsp;<span class="unit">€</span></div>
+      <span class="stat-label">Alates / ööpäev</span>
+    </div>
+    <div class="stat">
+      <div class="stat-num"><span data-count="365">365</span></div>
+      <span class="stat-label">Päeva aastas</span>
+    </div>
+  </div>
+</div>
+
 <section id="kumblustunn" class="section">
   <div class="container">
-    <p class="overline"><span class="mark"></span>Tutvu tünniga</p>
-    <h2 class="left">Meie <em>kümblustünn</em></h2>
+    <p class="overline reveal"><span class="mark"></span>Tutvu tünniga</p>
+    <h2 class="left reveal">Meie <em>kümblustünn</em></h2>
     <div class="sauna-grid">
-      <div class="gallery">
+      <div class="gallery reveal">
         <div class="gallery-track" id="galleryTrack">
           <img src="images/saun-1.jpg" alt="Virtsutünn kümblustünn rataste peal aiamaastikul" width="1600" height="1200">
           <img src="images/saun-2.jpg" alt="Kümblustünni trepp ja haagis – lihtne sisse-välja pääs" width="1600" height="1200" loading="lazy">
@@ -98,7 +117,7 @@
         <button type="button" class="gallery-nav gallery-next" aria-label="Järgmine pilt">›</button>
         <div class="gallery-dots" id="galleryDots"></div>
       </div>
-      <div class="sauna-info">
+      <div class="sauna-info reveal" style="--reveal-delay:120ms">
         <p>Mugav ja hubane rattail kümblustünn mahutab korraga kuni <strong>6 inimest</strong>. Tünnisaun on lihtsasti transporditav ja sobib nii koduaeda kui ka suurematele üritustele – asume Nehatus, Virtsu lähistel.</p>
         <ul class="feature-list">
           <li>Mahutavus kuni 6 inimest</li>
@@ -111,29 +130,31 @@
   </div>
 </section>
 
+<div class="divider"></div>
+
 <section id="hinnad" class="section section-alt">
   <div class="container">
-    <p class="overline"><span class="mark"></span>Hinnakiri</p>
-    <h2 class="left">Lihtne ja aus <em>hind</em></h2>
+    <p class="overline reveal"><span class="mark"></span>Hinnakiri</p>
+    <h2 class="left reveal">Lihtne ja aus <em>hind</em></h2>
     <div class="pricing-grid">
-      <div class="price-card">
+      <div class="price-card reveal">
         <h3>Argipäev</h3>
         <p class="price">40&nbsp;€</p>
         <p class="price-note">24 tundi</p>
       </div>
-      <div class="price-card">
+      <div class="price-card reveal" style="--reveal-delay:120ms">
         <h3>Nädalavahetus</h3>
         <p class="price">55&nbsp;€</p>
         <p class="price-note">24 tundi</p>
       </div>
-      <div class="price-card price-card-highlight">
+      <div class="price-card price-card-highlight reveal" style="--reveal-delay:240ms">
         <h3>Terve nädalavahetus</h3>
         <p class="price">100&nbsp;€</p>
         <p class="price-note">reedest pühapäevani</p>
       </div>
     </div>
 
-    <div class="delivery-info">
+    <div class="delivery-info reveal">
       <h3>Kohaletoimetamine</h3>
       <p>Kohaletoomise hind kokkuleppel, sõltuvalt asukohast. Võimalik ka ise kümblustünnile järele tulla – asume Nehatus, Lääneranna vallas, Virtsu lähistel. Toome kümblustünni kohale nii Pärnumaal kui Läänemaal – Lihula, Haapsalu, Pärnu ja Virtsu ümbruses, kokkuleppel ka kaugemale.</p>
     </div>
@@ -142,35 +163,35 @@
 
 <section id="broneeri" class="section">
   <div class="container">
-    <p class="overline"><span class="mark"></span>Broneerimine</p>
-    <h2 class="left">Broneeri <em>kümblustünn</em></h2>
-    <p class="section-lead">Täida vorm ja võtame sinuga peagi ühendust broneeringu kinnitamiseks.</p>
+    <p class="overline reveal"><span class="mark"></span>Broneerimine</p>
+    <h2 class="left reveal">Broneeri <em>kümblustünn</em></h2>
+    <p class="section-lead reveal">Täida vorm ja võtame sinuga peagi ühendust broneeringu kinnitamiseks.</p>
 
-    <form class="booking-form" action="https://formspree.io/f/mpqvzrab" method="POST">
+    <form class="booking-form reveal" action="https://formspree.io/f/mpqvzrab" method="POST">
       <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
       <div class="form-row">
+        <input type="text" id="name" name="name" placeholder=" " required>
         <label for="name">Nimi *</label>
-        <input type="text" id="name" name="name" required>
       </div>
       <div class="form-row">
+        <input type="email" id="email" name="email" placeholder=" " required>
         <label for="email">E-post *</label>
-        <input type="email" id="email" name="email" required>
       </div>
       <div class="form-row">
+        <input type="tel" id="phone" name="phone" placeholder=" ">
         <label for="phone">Telefon</label>
-        <input type="tel" id="phone" name="phone">
       </div>
       <div class="form-row">
-        <label for="dates">Soovitud kuupäevad *</label>
         <input type="text" id="dates" name="dates" placeholder="nt 25.–27. juuli 2026" required>
+        <label for="dates">Soovitud kuupäevad *</label>
       </div>
       <div class="form-row">
-        <label for="location">Asukoht (kohaletoimetamiseks)</label>
         <input type="text" id="location" name="location" placeholder="Linn / vald">
+        <label for="location">Asukoht (kohaletoimetamiseks)</label>
       </div>
       <div class="form-row">
-        <label for="message">Lisainfo</label>
         <textarea id="message" name="message" rows="4" placeholder="Kirjuta siia täpsustavad soovid või küsimused"></textarea>
+        <label for="message">Lisainfo</label>
       </div>
       <button type="submit" class="btn btn-primary">Saada broneeringusoov</button>
     </form>
@@ -206,34 +227,6 @@
 </footer>
 
 <script src="script.js"></script>
-<script>
-(function () {
-  var track = document.getElementById('galleryTrack');
-  var dotsWrap = document.getElementById('galleryDots');
-  if (!track || !dotsWrap) return;
-  var slides = track.querySelectorAll('img');
-  slides.forEach(function (_, i) {
-    var d = document.createElement('button');
-    d.type = 'button';
-    d.className = 'gallery-dot' + (i === 0 ? ' active' : '');
-    d.setAttribute('aria-label', 'Pilt ' + (i + 1));
-    d.addEventListener('click', function () { goTo(i); });
-    dotsWrap.appendChild(d);
-  });
-  var dots = dotsWrap.querySelectorAll('.gallery-dot');
-  function current() { return Math.round(track.scrollLeft / track.clientWidth); }
-  function goTo(i) {
-    i = (i + slides.length) % slides.length;
-    track.scrollTo({ left: i * track.clientWidth, behavior: 'smooth' });
-  }
-  document.querySelector('.gallery-prev').addEventListener('click', function () { goTo(current() - 1); });
-  document.querySelector('.gallery-next').addEventListener('click', function () { goTo(current() + 1); });
-  track.addEventListener('scroll', function () {
-    var i = current();
-    dots.forEach(function (d, j) { d.classList.toggle('active', j === i); });
-  }, { passive: true });
-})();
-</script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "d853c3a62f4f4d02b4b2b143bbcb027c"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
