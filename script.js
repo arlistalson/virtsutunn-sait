@@ -3,14 +3,15 @@ document.getElementById("year").textContent = new Date().getFullYear();
 
 var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-/* ---------- Booking form (Formspree AJAX) ---------- */
+/* ---------- Booking form (AJAX → Telegram worker) ---------- */
 (function () {
   var form = document.querySelector(".booking-form");
   if (!form) return;
+  var btn = form.querySelector('button[type="submit"]');
+  var btnHtml = btn.innerHTML;
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
-    var btn = form.querySelector('button[type="submit"]');
     btn.disabled = true;
     btn.textContent = "Saadan…";
     fetch(form.action, {
@@ -23,7 +24,7 @@ var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
       document.querySelector(".form-success").hidden = false;
     }).catch(function () {
       btn.disabled = false;
-      btn.textContent = "Saada broneeringusoov";
+      btn.innerHTML = btnHtml;
       alert("Saatmine ebaõnnestus. Palun proovi uuesti või kirjuta otse: arlistalson@gmail.com");
     });
   });
